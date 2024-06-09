@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fe": {
+    "ecommerce-fe": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/fe",
+            "outputPath": "dist/ecommerce-fe",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,7 +27,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -74,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fe:build:production"
+              "buildTarget": "ecommerce-fe:build:production"
             },
             "development": {
-              "buildTarget": "fe:build:development"
+              "buildTarget": "ecommerce-fe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +89,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/favicon.ico",
+              "src/assets/*",
+              "src/images"
             ],
             "styles": [
               "src/styles.css"
@@ -109,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "60657a08-5404-430d-8d8d-27dbc79bcc5b"
   }
 }
